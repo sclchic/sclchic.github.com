@@ -26,7 +26,7 @@
     <div class="bar" style="width: 0;"></div>
     <a class="icon-home image-icon" href="javascript:;"></a>
     <div title="播放/暂停" class="icon-play"></div>
-    <h3 class="subtitle">js事件</h3>
+    <h3 class="subtitle">按字节数截取字符串</h3>
     <div class="social">
         <!--<div class="like-icon">-->
             <!--<a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
@@ -43,14 +43,14 @@
     <div class="section">
         <div class="article">
     <div class='main'>
-        <h1 class="title">js事件</h1>
+        <h1 class="title">按字节数截取字符串</h1>
         <div class="stuff">
-            <span>十月 16, 2018</span>
+            <span>十月 18, 2018</span>
             
 
         </div>
         <div class="content markdown">
-            
+            <h2 id="按字节数截取字符串"><a href="#按字节数截取字符串" class="headerlink" title="按字节数截取字符串"></a>按字节数截取字符串</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">strEllipsis</span>(<span class="params">str, targetLen</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (str == <span class="literal">null</span>) <span class="keyword">return</span> <span class="string">''</span>;  </span><br><span class="line">    </span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">typeof</span> str != <span class="string">"string"</span>)&#123;  </span><br><span class="line">            str += <span class="string">""</span>;  </span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            str = str.trim();  </span><br><span class="line">        &#125;</span><br><span class="line">    </span><br><span class="line">        <span class="keyword">let</span> len = str.length,</span><br><span class="line">            charLength = <span class="number">0</span>;</span><br><span class="line">    </span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; len; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (<span class="regexp">/[^\x00-\xff]/</span>.test(str.charAt(i))) &#123;</span><br><span class="line">                <span class="comment">// 说明是汉字或者全角字符</span></span><br><span class="line">                charLength += <span class="number">2</span>;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                charLength += <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            </span><br><span class="line">            <span class="comment">// 如果出现截取半个汉字或者全角字符的情况，则舍弃截取少一位</span></span><br><span class="line">            <span class="keyword">if</span> (charLength &gt; targetLen) &#123;</span><br><span class="line">               <span class="keyword">return</span> str.substr(<span class="number">0</span>, i)+<span class="string">'...'</span>;</span><br><span class="line">            &#125; </span><br><span class="line">            </span><br><span class="line">            <span class="keyword">if</span> (i == (len<span class="number">-1</span>) &amp;&amp; (charLength &lt;= targetLen)) &#123;</span><br><span class="line">               <span class="keyword">return</span> str.substr(<span class="number">0</span>, i+<span class="number">1</span>);</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 
             <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
             <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
@@ -81,7 +81,7 @@
     </div>
     
         <div class='side'>
-            
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#按字节数截取字符串"><span class="toc-number">1.</span> <span class="toc-text">按字节数截取字符串</span></a></li></ol>
         </div>
     
 </div>

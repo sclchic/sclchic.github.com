@@ -26,7 +26,7 @@
     <div class="bar" style="width: 0;"></div>
     <a class="icon-home image-icon" href="javascript:;"></a>
     <div title="播放/暂停" class="icon-play"></div>
-    <h3 class="subtitle">js事件</h3>
+    <h3 class="subtitle">return使用注意点</h3>
     <div class="social">
         <!--<div class="like-icon">-->
             <!--<a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
@@ -43,14 +43,17 @@
     <div class="section">
         <div class="article">
     <div class='main'>
-        <h1 class="title">js事件</h1>
+        <h1 class="title">return使用注意点</h1>
         <div class="stuff">
-            <span>十月 16, 2018</span>
+            <span>十月 18, 2018</span>
             
 
         </div>
         <div class="content markdown">
-            
+            <h2 id="场景描述"><a href="#场景描述" class="headerlink" title="场景描述"></a>场景描述</h2><p>有一天晚上，我在控制台输出了这样一段代码，结果给我报了个错？咿，这是咋回事。<br><img src="/2018/10/18/use-return-notice/img1.png" title="This is example image"></p>
+<h2 id="为什么呢"><a href="#为什么呢" class="headerlink" title="为什么呢"></a>为什么呢</h2><blockquote><p><code>return</code>语句终止<code>函数</code>的执行，并返回一个指定的值给函数调用者。</p>
+<footer><strong>MDN -</strong><cite><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Statements/return" target="_blank" rel="noopener">return</a></cite></footer></blockquote>
+<p>return 应该运行在函数中才可以呀！这点怎么都忘了呢！😓</p>
 
             <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
             <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
@@ -81,7 +84,7 @@
     </div>
     
         <div class='side'>
-            
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#场景描述"><span class="toc-number">1.</span> <span class="toc-text">场景描述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#为什么呢"><span class="toc-number">2.</span> <span class="toc-text">为什么呢</span></a></li></ol>
         </div>
     
 </div>
