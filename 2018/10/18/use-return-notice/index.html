@@ -11,10 +11,8 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="google" content="notranslate" />
     <meta name="keywords" content="fe,"> 
-    <meta name="description" content="记录前端工作生活,场景描述有一天晚上，我在控制台输出了这样一段代码，结果给我报了个错？咿，这是咋回事。
-为什么呢return语句终止函数的执行，并返回一个指定的值给函数调用者。
-MDN -return
-return ,"> 
+    <meta name="description" content="记录前端工作生活,需要提前说明的知识点：字符串的length属性返回的是字符的个数，不是字节的个数耨！
+按字节数截取字符串12345678910111213141516171819202122232425262728,"> 
     <meta name="author" content="chic"> 
     <link rel="alternative" href="atom.xml" title="不学者，虽存，谓之行尸走肉耳" type="application/atom+xml"> 
     <link rel="icon" href="/img/favicon.png"> 
@@ -53,10 +51,10 @@ return ,">
 
         </div>
         <div class="content markdown">
-            <h2 id="场景描述"><a href="#场景描述" class="headerlink" title="场景描述"></a>场景描述</h2><p>有一天晚上，我在控制台输出了这样一段代码，结果给我报了个错？咿，这是咋回事。<br><img src="/2018/10/18/use-return-notice/img1.png" title="This is example image"></p>
+            <h2 id="场景描述"><a href="#场景描述" class="headerlink" title="场景描述"></a>场景描述</h2><p>一天晚上，我在控制台输出了这样一段代码，结果给我报了个非法的返回语句错误？咿，for循环中不能用<code>return</code>吗？以前也用过呢！这次是咋回事，一时难以理解。<br><img src="/2018/10/18/use-return-notice/img1.png" title="This is example image"></p>
 <h2 id="为什么呢"><a href="#为什么呢" class="headerlink" title="为什么呢"></a>为什么呢</h2><blockquote><p><code>return</code>语句终止<code>函数</code>的执行，并返回一个指定的值给函数调用者。</p>
 <footer><strong>MDN -</strong><cite><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Statements/return" target="_blank" rel="noopener">return</a></cite></footer></blockquote>
-<p>return 应该运行在函数中才可以呀！这点怎么都忘了呢！😓</p>
+<p>查了return的定义，才注意到之前用一直在函数里面，而这次控制台直接输出并没有在函数里使用，所以报错了！return 应该运行在函数中才可以的！</p>
 
             <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
             <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">

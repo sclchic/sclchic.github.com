@@ -27,7 +27,7 @@
     <div class="bar" style="width: 0;"></div>
     <a class="icon-home image-icon" href="javascript:;"></a>
     <div title="播放/暂停" class="icon-play"></div>
-    <h3 class="subtitle">js事件</h3>
+    <h3 class="subtitle">vue_problem_summary</h3>
     <div class="social">
         <!--<div class="like-icon">-->
             <!--<a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
@@ -44,45 +44,15 @@
     <div class="section">
         <div class="article">
     <div class='main'>
-        <h1 class="title">js事件</h1>
+        <h1 class="title">vue_problem_summary</h1>
         <div class="stuff">
-            <span>十月 16, 2018</span>
+            <span>十月 25, 2018</span>
             
 
         </div>
         <div class="content markdown">
-            <h2 id="事件流分析"><a href="#事件流分析" class="headerlink" title="事件流分析"></a>事件流分析</h2><blockquote>
-<p>事件流描述的是从页面中接收事件的顺序。</p>
-</blockquote>
-<p>早些时的IE和网景却提出了差不多是两种完全相反的事件流概念。<br>IE提出的是冒泡流，而网景提出的是捕获流，后来在W3C组织的统一之下，JS支持了冒泡流和捕获流，但是目前低版本的IE浏览器还是只能支持冒泡流(IE6,IE7,IE8均只支持冒泡流)，所以为了能够兼容更多的浏览器，建议大家使用<strong><em>冒泡流</em></strong>。</p>
-<h3 id="JS事件流原理图如下："><a href="#JS事件流原理图如下：" class="headerlink" title="JS事件流原理图如下："></a>JS事件流原理图如下：</h3><img src="/2018/10/16/js-event/lct.jpeg" title="事件流原理图">
-<h3 id="DOM规范在推进过程中，对事件流的支持如下："><a href="#DOM规范在推进过程中，对事件流的支持如下：" class="headerlink" title="DOM规范在推进过程中，对事件流的支持如下："></a>DOM规范在推进过程中，对事件流的支持如下：</h3><table>
-<thead>
-<tr>
-<th style="text-align:center">DOM Level</th>
-<th style="text-align:center">捕获流</th>
-<th style="text-align:center">冒泡流</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">DOM Level 0</td>
-<td style="text-align:center">不支持</td>
-<td style="text-align:center">支持</td>
-</tr>
-<tr>
-<td style="text-align:center">DOM Level 2</td>
-<td style="text-align:center">支持</td>
-<td style="text-align:center">支持</td>
-</tr>
-<tr>
-<td style="text-align:center">DOM Level 3</td>
-<td style="text-align:center">支持</td>
-<td style="text-align:center">支持</td>
-</tr>
-</tbody>
-</table>
-<h2 id="事件处理程序"><a href="#事件处理程序" class="headerlink" title="事件处理程序"></a>事件处理程序</h2><h3 id="HTML-事件处理程序"><a href="#HTML-事件处理程序" class="headerlink" title="HTML 事件处理程序"></a>HTML 事件处理程序</h3><h3 id="DOM-Level-0-级事件处理程序"><a href="#DOM-Level-0-级事件处理程序" class="headerlink" title="DOM Level 0 级事件处理程序"></a>DOM Level 0 级事件处理程序</h3><h3 id="DOM-Level-2-级事件处理程序"><a href="#DOM-Level-2-级事件处理程序" class="headerlink" title="DOM Level 2 级事件处理程序"></a>DOM Level 2 级事件处理程序</h3><h3 id="DOM-Level-3-级事件处理程序"><a href="#DOM-Level-3-级事件处理程序" class="headerlink" title="DOM Level 3 级事件处理程序"></a>DOM Level 3 级事件处理程序</h3><h3 id="跨浏览器事件处理程序"><a href="#跨浏览器事件处理程序" class="headerlink" title="跨浏览器事件处理程序"></a>跨浏览器事件处理程序</h3>
+            <h2 id="在页面渲染完成后修改DOM"><a href="#在页面渲染完成后修改DOM" class="headerlink" title="在页面渲染完成后修改DOM"></a>在页面渲染完成后修改DOM</h2><h3 id="需求描述"><a href="#需求描述" class="headerlink" title="需求描述"></a>需求描述</h3><p>一个新闻详情页面，页面内容都是通过从后台获取html字符串，直接用v-html指令然后渲染的。因为内容是运营人员富文本编辑上处理的，有些行内样式。其中就是给图片定了宽高，前端要做控制。为了覆盖行内样式，选择用js来改。于是我写了：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// html</span></span><br><span class="line">&lt;div v-html=<span class="string">"initData.content"</span>&gt;&lt;/div&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment">// js</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">    data() &#123;</span><br><span class="line">        <span class="keyword">return</span> &#123;</span><br><span class="line">            detail_url: <span class="string">''</span>,</span><br><span class="line">            initData: &#123;&#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    created () &#123;</span><br><span class="line">        <span class="keyword">this</span>.init()</span><br><span class="line">    &#125;,</span><br><span class="line">    methods: &#123;</span><br><span class="line">        dealImg() &#123;</span><br><span class="line">            <span class="keyword">this</span>.$nextTick(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">                <span class="keyword">let</span> imgs = <span class="built_in">document</span>.getElementsByTagName(<span class="string">'img'</span>);</span><br><span class="line">                <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; imgs.length; i++) &#123;</span><br><span class="line">                    imgs[i].style.maxWidth = <span class="string">'100%'</span>;</span><br><span class="line">                    imgs[i].style.height = <span class="string">'auto'</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;)</span><br><span class="line">        &#125;,</span><br><span class="line">        init()&#123;</span><br><span class="line">            <span class="keyword">this</span>.$axios.post(<span class="keyword">this</span>.detail_url, &#123;</span><br><span class="line">                </span><br><span class="line">            &#125;).then(<span class="function">(<span class="params">res</span>) =&gt;</span> &#123;</span><br><span class="line">                <span class="keyword">if</span> (res.data.code == <span class="number">0</span>) &#123;</span><br><span class="line">                    <span class="keyword">this</span>.initData=res.data.data;</span><br><span class="line">                    <span class="keyword">this</span>.dealImg();</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    <span class="keyword">this</span>.$toast(res.data.msg);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
             <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
             <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
                 <source type="audio/mpeg" src="">
@@ -112,7 +82,7 @@
     </div>
     
         <div class='side'>
-            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#事件流分析"><span class="toc-number">1.</span> <span class="toc-text">事件流分析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#JS事件流原理图如下："><span class="toc-number">1.1.</span> <span class="toc-text">JS事件流原理图如下：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DOM规范在推进过程中，对事件流的支持如下："><span class="toc-number">1.2.</span> <span class="toc-text">DOM规范在推进过程中，对事件流的支持如下：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#事件处理程序"><span class="toc-number">2.</span> <span class="toc-text">事件处理程序</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#HTML-事件处理程序"><span class="toc-number">2.1.</span> <span class="toc-text">HTML 事件处理程序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DOM-Level-0-级事件处理程序"><span class="toc-number">2.2.</span> <span class="toc-text">DOM Level 0 级事件处理程序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DOM-Level-2-级事件处理程序"><span class="toc-number">2.3.</span> <span class="toc-text">DOM Level 2 级事件处理程序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DOM-Level-3-级事件处理程序"><span class="toc-number">2.4.</span> <span class="toc-text">DOM Level 3 级事件处理程序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#跨浏览器事件处理程序"><span class="toc-number">2.5.</span> <span class="toc-text">跨浏览器事件处理程序</span></a></li></ol></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#在页面渲染完成后修改DOM"><span class="toc-number">1.</span> <span class="toc-text">在页面渲染完成后修改DOM</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#需求描述"><span class="toc-number">1.1.</span> <span class="toc-text">需求描述</span></a></li></ol></li></ol>
         </div>
     
 </div>
