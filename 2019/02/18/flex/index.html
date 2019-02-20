@@ -26,7 +26,7 @@
     <div class="bar" style="width: 0;"></div>
     <a class="icon-home image-icon" href="javascript:;"></a>
     <div title="播放/暂停" class="icon-play"></div>
-    <h3 class="subtitle">setTimeout、setInterval被遗忘的第三个参数</h3>
+    <h3 class="subtitle">flex详解</h3>
     <div class="social">
         <!--<div class="like-icon">-->
             <!--<a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
@@ -43,24 +43,14 @@
     <div class="section">
         <div class="article">
     <div class='main'>
-        <h1 class="title">setTimeout、setInterval被遗忘的第三个参数</h1>
+        <h1 class="title">flex详解</h1>
         <div class="stuff">
-            <span>二月 13, 2019</span>
+            <span>二月 18, 2019</span>
             
 
         </div>
         <div class="content markdown">
-            <p>今天在看Promise的时候发现定时器还有第三个参数，之前一直都没注意，也没有用过，很惊喜😄。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">timeout</span>(<span class="params">ms</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">    setTimeout(resolve, ms, <span class="string">'done'</span>);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="MDN上的定义"><a href="#MDN上的定义" class="headerlink" title="MDN上的定义"></a>MDN上的定义</h3><blockquote>
-<p>var timeoutID = scope.setTimeout(function[, delay, param1, param2, …]); </p>
-</blockquote>
-<blockquote>
-<p>param1, …, paramN 可选<br>附加参数，一旦定时器到期，它们会作为<strong>参数</strong>传递给function 或 执行字符串（setTimeout参数中的code）</p>
-</blockquote>
-<h3 id="当第三个参数是函数会很有意思"><a href="#当第三个参数是函数会很有意思" class="headerlink" title="当第三个参数是函数会很有意思"></a>当第三个参数是函数会很有意思</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> doc = <span class="built_in">document</span>.getElementById(<span class="string">'div'</span>);</span><br><span class="line">setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    doc.style.color=<span class="string">'red'</span>;</span><br><span class="line">&#125;,<span class="number">10000</span>,setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    doc.style.color=<span class="string">'black'</span>;</span><br><span class="line">&#125;,<span class="number">5000</span>));</span><br></pre></td></tr></table></figure>
-<p>上面的结果是，div元素内的字体样式5秒后变黑，10秒后再变红。</p>
-
+            
             <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
             <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
                 <source type="audio/mpeg" src="">
@@ -90,7 +80,7 @@
     </div>
     
         <div class='side'>
-            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#MDN上的定义"><span class="toc-number">1.</span> <span class="toc-text">MDN上的定义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#当第三个参数是函数会很有意思"><span class="toc-number">2.</span> <span class="toc-text">当第三个参数是函数会很有意思</span></a></li></ol>
+            
         </div>
     
 </div>
