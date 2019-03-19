@@ -1,0 +1,434 @@
+
+<!DOCTYPE html>
+<html lang="" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>敏于事慎于言 - chic</title>
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="前端 程序媛 生活杂记,"> 
+    <meta name="description" content="记录前端工作生活,"> 
+    <meta name="author" content="chic"> 
+    <link rel="alternative" href="atom.xml" title="敏于事慎于言" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <link rel="stylesheet" href="/css/diaspora.css">
+</head>
+
+<body class="loading">
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="icon-home image-icon" href="javascript:;"></a>
+    <div title="播放/暂停" class="icon-play"></div>
+    <h3 class="subtitle">面试之数组相关</h3>
+    <div class="social">
+        <!--<div class="like-icon">-->
+            <!--<a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
+        <!--</div>-->
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">面试之数组相关</h1>
+        <div class="stuff">
+            <span>三月 19, 2019</span>
+            
+  <ul class="post-tags-list"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/前端-面试-数组/">前端 面试 数组</a></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <h2 id="如何判断一个变量是否为数组？"><a href="#如何判断一个变量是否为数组？" class="headerlink" title="如何判断一个变量是否为数组？"></a>如何判断一个变量是否为数组？</h2><p>javaScript中有五种方法可以判断一个变量是否为数组，分别是：</p>
+<ul>
+<li>typeof运算符</li>
+<li>instanceof运算符</li>
+<li>constructor属性</li>
+<li>Object.prototype.toString()</li>
+<li>Array.isArray()</li>
+<li>特性嗅探?</li>
+</ul>
+<h3 id="typeof运算符"><a href="#typeof运算符" class="headerlink" title="typeof运算符"></a>typeof运算符</h3><p>下表总结了typeof可能的返回值</p>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th style="text-align:center">结果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Undefined</td>
+<td style="text-align:center">“undefined”</td>
+</tr>
+<tr>
+<td>Null</td>
+<td style="text-align:center">“object”</td>
+</tr>
+<tr>
+<td>Boolean</td>
+<td style="text-align:center">“boolean”</td>
+</tr>
+<tr>
+<td>Number</td>
+<td style="text-align:center">“number”</td>
+</tr>
+<tr>
+<td>String</td>
+<td style="text-align:center">“string”</td>
+</tr>
+<tr>
+<td>Symbol</td>
+<td style="text-align:center">“symbol”</td>
+</tr>
+<tr>
+<td>宿主对象</td>
+<td style="text-align:center">Implementation-dependent</td>
+</tr>
+<tr>
+<td>函数对象</td>
+<td style="text-align:center">“function”</td>
+</tr>
+<tr>
+<td>任何其他对象</td>
+<td style="text-align:center">任何其他对象</td>
+</tr>
+</tbody>
+</table>
+<img src="/2019/03/19/interview-array/i_a_1.png" title="This is example image">
+<p>从上表和实际执行结果可以看出，当<strong>typeof</strong>的参数为null、对象、<strong>数组</strong>的时候都会返回<strong>object</strong>，因此用typeof运算符来判断某变量是否为数组是<em>不靠谱的</em>。</p>
+<h3 id="instanceof运算符"><a href="#instanceof运算符" class="headerlink" title="instanceof运算符"></a>instanceof运算符</h3><p>判断某个构造函数的<strong>prototype</strong>属性所指向的对象是否存在于<strong>object</strong>的原型链上</p>
+<blockquote>
+<p>object instanceof constructor</p>
+</blockquote>
+<p>执行结果如下，可以判断出是否是数组<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = [];</span><br><span class="line"><span class="built_in">console</span>.log(a <span class="keyword">instanceof</span> <span class="built_in">Array</span>); <span class="comment">//true</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="constructor属性"><a href="#constructor属性" class="headerlink" title="constructor属性"></a>constructor属性</h3><blockquote>
+<p>原型对象是类的唯一标识，构造函数是类的外在表现 – js权威指南</p>
+</blockquote>
+<p>我们用构造函数来判断类的类型，数组实例的构造函数应该为<strong>Array</strong><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> a1 = [];</span><br><span class="line"><span class="built_in">console</span>.log(a.constructor === <span class="built_in">Array</span>); <span class="comment">// true</span></span><br></pre></td></tr></table></figure></p>
+<p>但是对象的constructor是可以修改的，这种方法并不靠谱。</p>
+<h4 id="需要注意嵌套-frame-的情况下，instanceof、constructor都会无效"><a href="#需要注意嵌套-frame-的情况下，instanceof、constructor都会无效" class="headerlink" title="需要注意嵌套 frame 的情况下，instanceof、constructor都会无效"></a>需要注意嵌套 frame 的情况下，instanceof、constructor都会无效</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">iframe</span> <span class="attr">src</span>=<span class="string">'a.htm'</span>&gt;</span><span class="tag">&lt;/<span class="name">iframe</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">    <span class="built_in">window</span>.onload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">      <span class="keyword">var</span> a = <span class="built_in">window</span>.frames[<span class="number">0</span>].a;</span></span><br><span class="line"><span class="javascript">      <span class="built_in">console</span>.log(a <span class="keyword">instanceof</span> <span class="built_in">Array</span>);  <span class="comment">// false</span></span></span><br><span class="line"><span class="javascript">      <span class="built_in">console</span>.log(a.constructor === <span class="built_in">Array</span>);  <span class="comment">// false</span></span></span><br><span class="line"><span class="undefined">    &#125;;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>a.htm 代码：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">  <span class="built_in">window</span>.a = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>我们看到 index.htm 代码中，变量 a 确实是一个数组，但是 a instanceof Array 的结果却是 false。</p>
+<p>这是因为每个 frame 都有一套自己的执行环境，跨 frame 实例化的对象彼此不共享原型链。如果打印 a instanceof window.frames[0].Array，那么结果就是 true 了。</p>
+<h3 id="Object-prototype-toString"><a href="#Object-prototype-toString" class="headerlink" title="Object.prototype.toString()"></a>Object.prototype.toString()</h3><p>这个方法也是一些类库进行数组（甚至其他类型）判断的主流方式。看一下测试：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.prototype.toString.call(<span class="number">10</span>));  <span class="comment">// [object Number]</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.prototype.toString.call(<span class="string">'hello'</span>)); <span class="comment">// [object String]</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.prototype.toString.call(<span class="literal">true</span>));  <span class="comment">// [object Boolean]</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.prototype.toString.call([]));  <span class="comment">// [object Array]</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.prototype.toString.call(&#123;&#125;));  <span class="comment">// [object Object]</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.prototype.toString.call(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;));  <span class="comment">// [object Function]</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.prototype.toString.call(<span class="regexp">/a/g</span>));  <span class="comment">// [object RegExp]</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.prototype.toString.call(<span class="literal">null</span>));  <span class="comment">// [object Null]</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.prototype.toString.call(<span class="literal">undefined</span>)); <span class="comment">// [object Undefined]</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.prototype.toString.call(<span class="keyword">new</span> <span class="built_in">Date</span>())); <span class="comment">// [object Date]</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.prototype.toString.call(<span class="keyword">new</span> <span class="built_in">Error</span>())); <span class="comment">// [object Error]</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.prototype.toString.call(<span class="built_in">Symbol</span>())); <span class="comment">// [object Symbol]</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.prototype.toString.call(<span class="built_in">Math</span>)); <span class="comment">// [object Math]</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.prototype.toString.call(<span class="built_in">JSON</span>)); <span class="comment">// [object JSON]</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.prototype.toString.call(location)); <span class="comment">// [object Location]</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.prototype.toString.call(history)); <span class="comment">// [object History]</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.prototype.toString.call(<span class="built_in">window</span>)); <span class="comment">// [object Window]</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">a</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="built_in">Object</span>.prototype.toString.call(<span class="built_in">arguments</span>)); <span class="comment">// [object Arguments]</span></span><br><span class="line">&#125;</span><br><span class="line">a();</span><br></pre></td></tr></table></figure></p>
+<h3 id="Array-isArray"><a href="#Array-isArray" class="headerlink" title="Array.isArray()"></a>Array.isArray()</h3><p>ES5的这个方法，在保证兼容性的前提下可以使用</p>
+<h3 id="特性嗅探？"><a href="#特性嗅探？" class="headerlink" title="特性嗅探？"></a>特性嗅探？</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = [<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>];</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (a.sort) &#123;</span><br><span class="line">  <span class="comment">// 是数组</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> a = &#123;<span class="attr">sort</span>: <span class="string">'me'</span>&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (a.sort) &#123;</span><br><span class="line">  <span class="comment">// 数组？</span></span><br><span class="line">  <span class="comment">// 其实我真的不是数组</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>简直不靠谱。</p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>我们来写一个js类型判断函数<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 如果是基本类型，就使用 typeof，引用类型就使用 toString。此外鉴于 typeof 的结果是小写，希望所有的结果都是小写。</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> class2type = &#123;&#125;;</span><br><span class="line"><span class="comment">// 生成class2type映射</span></span><br><span class="line"><span class="string">"Boolean Number String Function Array Date RegExp Object Error"</span>.split(<span class="string">" "</span>).map(<span class="function"><span class="keyword">function</span>(<span class="params">item, index</span>) </span>&#123;</span><br><span class="line">    class2type[<span class="string">"[object "</span> + item + <span class="string">"]"</span>] = item.toLowerCase();</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">type</span>(<span class="params">obj</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 在 IE6 中，null 和 undefined 会被 Object.prototype.toString 识别成 [object Object]！</span></span><br><span class="line">    <span class="keyword">if</span> (obj == <span class="literal">null</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> obj + <span class="string">""</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">typeof</span> obj === <span class="string">"object"</span> || <span class="keyword">typeof</span> obj === <span class="string">"function"</span> ?</span><br><span class="line">        class2type[<span class="built_in">Object</span>.prototype.toString.call(obj)] || <span class="string">"object"</span> :</span><br><span class="line">        <span class="keyword">typeof</span> obj;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> isArray = <span class="built_in">Array</span>.isArray || <span class="function"><span class="keyword">function</span>(<span class="params"> obj </span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> type(obj) === <span class="string">"array"</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="数组的原生方法有哪些？"><a href="#数组的原生方法有哪些？" class="headerlink" title="数组的原生方法有哪些？"></a>数组的原生方法有哪些？</h2><table>
+<thead>
+<tr>
+<th>Array.prototype上的方法</th>
+<th style="text-align:center">描述</th>
+<th>返回值</th>
+<th>是否改变原数组</th>
+<th>注意点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>concat()</td>
+<td style="text-align:center">方法用于合并两个或多个数组。</td>
+<td>新数组</td>
+<td>否</td>
+<td>返回一个浅拷贝的数组；在嵌套数组合并的时候，之扁平化最外层数组；</td>
+</tr>
+<tr>
+<td>copyWithin(target[, start[, end]])</td>
+<td style="text-align:center">方法浅复制数组的一部分到同一数组中的另一个位置。</td>
+<td>改变后的数组</td>
+<td>是</td>
+<td>无</td>
+</tr>
+<tr>
+<td>entries()</td>
+<td style="text-align:center">方法返回一个新的Array Iterator对象，该对象包含数组中每个索引的键/值对</td>
+<td>新的Array Iterator对象</td>
+<td>否</td>
+<td>新Array Iterator对象的原型（<strong>proto</strong>:Array Iterator）上有一个next方法，可用用于遍历迭代器取得原数组的[key,value]</td>
+</tr>
+<tr>
+<td>every(callback(元素值，元素的索引，原数组)[, thisArg])</td>
+<td style="text-align:center">方法测试数组的所有元素是否都通过了指定函数的测试</td>
+<td>布尔值</td>
+<td>否</td>
+<td>无</td>
+</tr>
+<tr>
+<td>some(callback(element[, index[, array]])[, thisArg])</td>
+<td style="text-align:center">方法测试是否至少有一个元素通过由提供的函数实现的测试</td>
+<td>布尔值</td>
+<td>否</td>
+<td>无</td>
+</tr>
+<tr>
+<td>filter()</td>
+<td style="text-align:center">方法创建一个新数组, 其包含通过所提供函数实现的测试的所有元素</td>
+<td>返回通过测试函数为true的元素组成的新数组</td>
+<td>否</td>
+<td>无</td>
+</tr>
+<tr>
+<td>forEach()</td>
+<td style="text-align:center">方法对数组的每个元素执行一次提供的函数</td>
+<td>undefined</td>
+<td>否</td>
+<td>无</td>
+</tr>
+<tr>
+<td>map()</td>
+<td style="text-align:center">方法创建一个新数组，其结果是该数组中的每个元素都调用一个提供的函数后返回的结果</td>
+<td>返回一个由回调函数的返回值组成的新数组</td>
+<td>否</td>
+<td>无</td>
+</tr>
+<tr>
+<td>fill()</td>
+<td style="text-align:center">“undefined”</td>
+</tr>
+<tr>
+<td>find()</td>
+<td style="text-align:center">“undefined”</td>
+</tr>
+<tr>
+<td>findIndex()</td>
+<td style="text-align:center">“undefined”</td>
+</tr>
+<tr>
+<td>flat()</td>
+<td style="text-align:center">“undefined”</td>
+</tr>
+<tr>
+<td>flatMap()</td>
+<td style="text-align:center">“undefined”</td>
+</tr>
+<tr>
+<td>includes()</td>
+<td style="text-align:center">“undefined”</td>
+</tr>
+<tr>
+<td>indexOf()</td>
+<td style="text-align:center">“undefined”</td>
+</tr>
+<tr>
+<td>join()</td>
+<td style="text-align:center">“undefined”</td>
+</tr>
+<tr>
+<td>keys()</td>
+<td style="text-align:center">“undefined”</td>
+</tr>
+<tr>
+<td>lastIndexOf()</td>
+<td style="text-align:center">“undefined”</td>
+</tr>
+<tr>
+<td>pop()</td>
+<td style="text-align:center">“undefined”</td>
+</tr>
+<tr>
+<td>push()</td>
+<td style="text-align:center">“undefined”</td>
+</tr>
+<tr>
+<td>reduce()</td>
+<td style="text-align:center">“undefined”</td>
+</tr>
+<tr>
+<td>reduceRight()</td>
+<td style="text-align:center">“undefined”</td>
+</tr>
+<tr>
+<td>reverse()</td>
+<td style="text-align:center">“undefined”</td>
+</tr>
+<tr>
+<td>shift()</td>
+<td style="text-align:center">“undefined”</td>
+</tr>
+<tr>
+<td>slice()</td>
+<td style="text-align:center">“undefined”</td>
+</tr>
+<tr>
+<td>sort()</td>
+<td style="text-align:center">“undefined”</td>
+</tr>
+<tr>
+<td>splice()</td>
+<td style="text-align:center">“undefined”</td>
+</tr>
+<tr>
+<td>toLocaleString()</td>
+<td style="text-align:center">“undefined”</td>
+</tr>
+<tr>
+<td>toString()</td>
+<td style="text-align:center">“undefined”</td>
+</tr>
+<tr>
+<td>unshift()</td>
+<td style="text-align:center">“undefined”</td>
+</tr>
+<tr>
+<td>values()</td>
+<td style="text-align:center">“undefined”</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Array.prototype上的属性</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>constructor</td>
+<td style="text-align:center">“undefined”</td>
+</tr>
+<tr>
+<td>length</td>
+<td style="text-align:center">“undefined”</td>
+</tr>
+</tbody>
+</table>
+<h2 id="如何将一个类数组变量转化为数组？"><a href="#如何将一个类数组变量转化为数组？" class="headerlink" title="如何将一个类数组变量转化为数组？"></a>如何将一个类数组变量转化为数组？</h2><h3 id="先来说下什么是类数组"><a href="#先来说下什么是类数组" class="headerlink" title="先来说下什么是类数组"></a>先来说下什么是类数组</h3><p>把拥有数值length属性和对应非负整数属性的对象看做一种类型的数组，也就是类数组。</p>
+<h3 id="类数组判断的几个点"><a href="#类数组判断的几个点" class="headerlink" title="类数组判断的几个点"></a>类数组判断的几个点</h3><ul>
+<li>首先typeof返回的是object</li>
+<li>有数值属性length，且length是有限的非负整数且在0～Math.pow(2, 32)之间</li>
+</ul>
+<h3 id="类数组有别于数组的点"><a href="#类数组有别于数组的点" class="headerlink" title="类数组有别于数组的点"></a>类数组有别于数组的点</h3><ul>
+<li>不具备数组length的一些特性</li>
+<li>其类属于<strong>Object</strong>，所以不能从Array.prototype中继承一些有用的方法，但是可以间接地使用Function.call方法调用</li>
+<li>可以用真正数组遍历的方法来遍历类数组</li>
+</ul>
+<h3 id="将类数组变量转化为数组"><a href="#将类数组变量转化为数组" class="headerlink" title="将类数组变量转化为数组"></a>将类数组变量转化为数组</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">likeArray</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="built_in">Array</span>.prototype.slice.call(<span class="built_in">arguments</span>)); <span class="comment">// [1, 2, 3]</span></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="built_in">Array</span>.from(<span class="built_in">arguments</span>)); <span class="comment">// [1, 2, 3]</span></span><br><span class="line">    <span class="built_in">console</span>.log([...arguments]); <span class="comment">// [1, 2, 3]</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">likeArray(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>);</span><br></pre></td></tr></table></figure>
+<h3 id="判断一个对象是否是类数组"><a href="#判断一个对象是否是类数组" class="headerlink" title="判断一个对象是否是类数组"></a>判断一个对象是否是类数组</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> MAX_ARRAY_INDEX = <span class="built_in">Math</span>.pow(<span class="number">2</span>, <span class="number">53</span>) - <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> isArrayLike = <span class="function"><span class="keyword">function</span>(<span class="params">collection</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> length = getLength(collection);</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">typeof</span> length == <span class="string">'number'</span> &amp;&amp; length &gt;= <span class="number">0</span> &amp;&amp; length &lt;= MAX_ARRAY_INDEX;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="说一说ES6中对于数组有哪些扩展？"><a href="#说一说ES6中对于数组有哪些扩展？" class="headerlink" title="说一说ES6中对于数组有哪些扩展？"></a>说一说ES6中对于数组有哪些扩展？</h2><ul>
+<li>扩展运算符</li>
+<li>Array.from() – 用于将类数组对象和可遍历的对象转为真正的数组</li>
+<li>Array.of() – 用于将一组值，转换为数组</li>
+<li>实例方法：copyWithin() find() findIndex() fill() entries() keys() values() includes() flat() flatMap()</li>
+<li>数组空位（ES6 则是明确将空位转为undefined） </li>
+</ul>
+<h2 id="你知道Array-prototype的类型是什么吗？"><a href="#你知道Array-prototype的类型是什么吗？" class="headerlink" title="你知道Array.prototype的类型是什么吗？"></a>你知道Array.prototype的类型是什么吗？</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Array</span>.isArray(<span class="built_in">Array</span>.prototype); <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>Array.prototype 本身也是一个 Array;<br>因为 Array.prototype 也是个数组，所以它也有 length 属性，这个值为 0，因为它是个空数组。</p>
+</blockquote>
+<h2 id="求数组最大值"><a href="#求数组最大值" class="headerlink" title="求数组最大值"></a>求数组最大值</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 原始方法</span></span><br><span class="line"><span class="keyword">var</span> arr = [<span class="number">6</span>, <span class="number">4</span>, <span class="number">1</span>, <span class="number">8</span>, <span class="number">2</span>, <span class="number">11</span>, <span class="number">23</span>];</span><br><span class="line"><span class="keyword">var</span> result = arr[<span class="number">0</span>];</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">1</span>; i &lt; arr.length; i++) &#123;</span><br><span class="line">    result = <span class="built_in">Math</span>.max(result, arr[i]);</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(result);</span><br><span class="line"></span><br><span class="line"><span class="comment">// resuce</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">max</span>(<span class="params">prev, next</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">Math</span>.max(prev, next);</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(arr.reduce(max));</span><br><span class="line"></span><br><span class="line"><span class="comment">// 排序</span></span><br><span class="line">arr.sort(<span class="function"><span class="keyword">function</span>(<span class="params">a, b</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a - b;</span><br><span class="line">&#125;)</span><br><span class="line"><span class="built_in">console</span>.log(arr[arr.length - <span class="number">1</span>]);</span><br><span class="line"></span><br><span class="line"><span class="comment">// apply</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.max.apply(<span class="literal">null</span>, arr));</span><br><span class="line"></span><br><span class="line"><span class="comment">// es6</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.max(...arr));</span><br></pre></td></tr></table></figure>
+<h2 id="数组去重"><a href="#数组去重" class="headerlink" title="数组去重"></a>数组去重</h2><h2 id="数组乱序"><a href="#数组乱序" class="headerlink" title="数组乱序"></a>数组乱序</h2><h2 id="数组扁平化"><a href="#数组扁平化" class="headerlink" title="数组扁平化"></a>数组扁平化</h2>
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        <li title='0' data-url='http://link.hhtjim.com/163/5146554.mp3'></li>
+                    
+                        <li title='1' data-url='http://link.hhtjim.com/qq/001faIUs4M2zna.mp3'></li>
+                    
+                </ul>
+            
+        </div>
+        
+    <div id='gitalk-container' class="comment link"
+        data-ae='true'
+        data-ci='5dcd53f9e1cbb4f401e4'
+        data-cs='0b25fdc96e004e0b384b0d54cd4e16af3b5d3392'
+        data-r='comments-collected'
+        data-o='sclchic'
+        data-a='sclchic'
+        data-d='true'
+    >查看评论</div>
+
+
+    </div>
+    
+        <div class='side'>
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#如何判断一个变量是否为数组？"><span class="toc-number">1.</span> <span class="toc-text">如何判断一个变量是否为数组？</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#typeof运算符"><span class="toc-number">1.1.</span> <span class="toc-text">typeof运算符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#instanceof运算符"><span class="toc-number">1.2.</span> <span class="toc-text">instanceof运算符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#constructor属性"><span class="toc-number">1.3.</span> <span class="toc-text">constructor属性</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#需要注意嵌套-frame-的情况下，instanceof、constructor都会无效"><span class="toc-number">1.3.1.</span> <span class="toc-text">需要注意嵌套 frame 的情况下，instanceof、constructor都会无效</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Object-prototype-toString"><span class="toc-number">1.4.</span> <span class="toc-text">Object.prototype.toString()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Array-isArray"><span class="toc-number">1.5.</span> <span class="toc-text">Array.isArray()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#特性嗅探？"><span class="toc-number">1.6.</span> <span class="toc-text">特性嗅探？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#总结"><span class="toc-number">1.7.</span> <span class="toc-text">总结</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数组的原生方法有哪些？"><span class="toc-number">2.</span> <span class="toc-text">数组的原生方法有哪些？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#如何将一个类数组变量转化为数组？"><span class="toc-number">3.</span> <span class="toc-text">如何将一个类数组变量转化为数组？</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#先来说下什么是类数组"><span class="toc-number">3.1.</span> <span class="toc-text">先来说下什么是类数组</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#类数组判断的几个点"><span class="toc-number">3.2.</span> <span class="toc-text">类数组判断的几个点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#类数组有别于数组的点"><span class="toc-number">3.3.</span> <span class="toc-text">类数组有别于数组的点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#将类数组变量转化为数组"><span class="toc-number">3.4.</span> <span class="toc-text">将类数组变量转化为数组</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#判断一个对象是否是类数组"><span class="toc-number">3.5.</span> <span class="toc-text">判断一个对象是否是类数组</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#说一说ES6中对于数组有哪些扩展？"><span class="toc-number">4.</span> <span class="toc-text">说一说ES6中对于数组有哪些扩展？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#你知道Array-prototype的类型是什么吗？"><span class="toc-number">5.</span> <span class="toc-text">你知道Array.prototype的类型是什么吗？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#求数组最大值"><span class="toc-number">6.</span> <span class="toc-text">求数组最大值</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数组去重"><span class="toc-number">7.</span> <span class="toc-text">数组去重</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数组乱序"><span class="toc-number">8.</span> <span class="toc-text">数组乱序</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数组扁平化"><span class="toc-number">9.</span> <span class="toc-text">数组扁平化</span></a></li></ol>
+        </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/diaspora.js"></script>
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+</html>
