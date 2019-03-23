@@ -1,0 +1,214 @@
+
+<!DOCTYPE html>
+<html lang="" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>敏于事慎于言 - chic</title>
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="前端 程序媛 生活杂记,"> 
+    <meta name="description" content="记录前端工作生活,"> 
+    <meta name="author" content="chic"> 
+    <link rel="alternative" href="atom.xml" title="敏于事慎于言" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <link rel="stylesheet" href="/css/diaspora.css">
+</head>
+
+<body class="loading">
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="icon-home image-icon" href="javascript:;"></a>
+    <div title="播放/暂停" class="icon-play"></div>
+    <h3 class="subtitle">函数相关</h3>
+    <div class="social">
+        <!--<div class="like-icon">-->
+            <!--<a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
+        <!--</div>-->
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">函数相关</h1>
+        <div class="stuff">
+            <span>三月 22, 2019</span>
+            
+  <ul class="post-tags-list"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/面试-函数/">面试 函数</a></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <h2 id="什么是闭包（closure），为什么要用它？"><a href="#什么是闭包（closure），为什么要用它？" class="headerlink" title="什么是闭包（closure），为什么要用它？"></a>什么是闭包（closure），为什么要用它？</h2><h3 id="ECMAScript中，闭包指的是："><a href="#ECMAScript中，闭包指的是：" class="headerlink" title="ECMAScript中，闭包指的是："></a>ECMAScript中，闭包指的是：</h3><p>闭包是指那些能够访问自由变量的函数。</p>
+<ul>
+<li>从理论角度：所有的函数。因为它们都在创建的时候就将上层上下文的数据保存起来了。哪怕是简单的全局变量也是如此，因为函数中访问全局变量就相当于是在访问自由变量，这个时候使用最外层的作用域。</li>
+<li>从实践角度：以下函数才算是闭包：<ul>
+<li>即使创建它的上下文已s经销毁，它仍然存在（比如，内部函数从父函数中返回）</li>
+<li>在代码中引用了自由变量</li>
+</ul>
+</li>
+</ul>
+<h3 id="闭包的作用"><a href="#闭包的作用" class="headerlink" title="闭包的作用"></a>闭包的作用</h3><p>闭包的特点很鲜明，闭包内，变量无法释放，无法被直接访问；闭包可以被延迟执行。所以可以用它来做一些事情：</p>
+<ul>
+<li>管理私有变量和私有方法，将对变量（状态）的变化封装在安全的环境中</li>
+<li>将代码封装成一个闭包形式，等待时机成熟的时候再使用，比如实现柯里化和反柯里化</li>
+<li>需要注意的，由于闭包内的部分资源无法自动释放，容易造成内存泄露</li>
+</ul>
+<h2 id="谈谈call、aapply、bind"><a href="#谈谈call、aapply、bind" class="headerlink" title="谈谈call、aapply、bind"></a>谈谈call、aapply、bind</h2><ul>
+<li>call() 方法在使用一个指定的 this 值和若干个指定的参数值的前提下调用某个函数或方法;</li>
+<li>apply与call方法类似，区别在于apply第二个参数是数组，而call则是单个的参数列表。</li>
+<li>bind() 方法会创建一个新函数。当这个新函数被调用时，bind() 的第一个参数将作为它运行时的 this，之后的一序列参数将会在传递的实参前传入作为它的参数。</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// call模拟实现</span></span><br><span class="line"><span class="built_in">Function</span>.prototype.call2 = <span class="function"><span class="keyword">function</span>(<span class="params">context, ...args</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> context = context || <span class="built_in">window</span>;</span><br><span class="line">    context.fn = <span class="keyword">this</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> result = context.fn(...args);</span><br><span class="line">    <span class="keyword">delete</span> context.fn;</span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// apply模拟实现</span></span><br><span class="line"><span class="built_in">Function</span>.prototype.apply2 = <span class="function"><span class="keyword">function</span> (<span class="params">context, arr</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> context = <span class="built_in">Object</span>(context) || <span class="built_in">window</span>;</span><br><span class="line">    context.fn = <span class="keyword">this</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> result;</span><br><span class="line">    <span class="keyword">if</span> (!arr) &#123;</span><br><span class="line">        result = context.fn();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> &#123;</span><br><span class="line">        result = context.fn(...arr);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">delete</span> context.fn</span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// bind模拟实现</span></span><br><span class="line"><span class="built_in">Function</span>.prototype.bind2 = <span class="function"><span class="keyword">function</span> (<span class="params">context</span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span> <span class="keyword">this</span> !== <span class="string">"function"</span>) &#123;</span><br><span class="line">      <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">"Function.prototype.bind - what is trying to be bound is not callable"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> self = <span class="keyword">this</span>;</span><br><span class="line">    <span class="keyword">var</span> args = <span class="built_in">Array</span>.prototype.slice.call(<span class="built_in">arguments</span>, <span class="number">1</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> fNOP = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;&#125;;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> fBound = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> bindArgs = <span class="built_in">Array</span>.prototype.slice.call(<span class="built_in">arguments</span>);</span><br><span class="line">        <span class="keyword">return</span> self.apply(<span class="keyword">this</span> <span class="keyword">instanceof</span> fNOP ? <span class="keyword">this</span> : context, args.concat(bindArgs));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    fNOP.prototype = <span class="keyword">this</span>.prototype;</span><br><span class="line">    fBound.prototype = <span class="keyword">new</span> fNOP();</span><br><span class="line">    <span class="keyword">return</span> fBound;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="说说节流和防抖"><a href="#说说节流和防抖" class="headerlink" title="说说节流和防抖"></a>说说节流和防抖</h2><p>在前端开发中会遇到一些频繁的事件触发，比如：</p>
+<ul>
+<li>window 的 resize、scroll</li>
+<li>mousedown、mousemove</li>
+<li>keyup、keydown</li>
+</ul>
+<p>限制事件的频繁触发的2种解决方案：</p>
+<ul>
+<li>debounce防抖</li>
+<li>throttle节流</li>
+</ul>
+<h3 id="debounce防抖"><a href="#debounce防抖" class="headerlink" title="debounce防抖"></a>debounce防抖</h3><p>原理：你尽管触发事件，但是我一定在事件触发 n 秒后才执行，如果你在一个事件触发的 n 秒内又触发了这个事件，那我就以新的事件的时间为准，n 秒后才执行，总之，就是要等你触发完事件 n 秒内不再触发事件，我才执行，真是任性呐!</p>
+<p>具体实现：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// @immediate 是否立刻执行</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">debounce</span>(<span class="params">func, wait, immediate</span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> timeout, result;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> debounced = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> context = <span class="keyword">this</span>;</span><br><span class="line">        <span class="keyword">var</span> args = <span class="built_in">arguments</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (timeout) clearTimeout(timeout);</span><br><span class="line">        <span class="keyword">if</span> (immediate) &#123;</span><br><span class="line">            <span class="comment">// 如果已经执行过，不再执行</span></span><br><span class="line">            <span class="keyword">var</span> callNow = !timeout;</span><br><span class="line">            timeout = setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">                timeout = <span class="literal">null</span>;</span><br><span class="line">            &#125;, wait)</span><br><span class="line">            <span class="keyword">if</span> (callNow) result = func.apply(context, args)</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> &#123;</span><br><span class="line">            timeout = setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">                func.apply(context, args)</span><br><span class="line">            &#125;, wait);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    debounced.cancel = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        clearTimeout(timeout);</span><br><span class="line">        timeout = <span class="literal">null</span>;</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> debounced;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="throttle节流"><a href="#throttle节流" class="headerlink" title="throttle节流"></a>throttle节流</h3><p>原理：如果你持续触发事件，每隔一段时间，只执行一次事件。<br>根据首次是否执行以及结束后是否执行，效果有所不同，实现的方式也有所不同。<br>两种主流的实现方式：</p>
+<ul>
+<li><p>使用时间戳 </p>
+<ul>
+<li>使用时间戳，当触发事件的时候，我们取出当前的时间戳，然后减去之前的时间戳(最一开始值设为 0 )，如果大于设置的时间周期，就执行函数，然后更新时间戳为当前的时间戳，如果小于，就不执行。</li>
+</ul>
+</li>
+<li><p>使用定时器</p>
+<ul>
+<li>当触发事件的时候，我们设置一个定时器，再触发事件的时候，如果定时器存在，就不执行，直到定时器执行，然后执行函数，清空定时器，这样就可以设置下个定时器。</li>
+</ul>
+</li>
+</ul>
+<p>具体实现：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 使用时间戳</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">throttle</span>(<span class="params">func, wait</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> context, args;</span><br><span class="line">    <span class="keyword">var</span> previous = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> now = +<span class="keyword">new</span> <span class="built_in">Date</span>();</span><br><span class="line">        context = <span class="keyword">this</span>;</span><br><span class="line">        args = <span class="built_in">arguments</span>;</span><br><span class="line">        <span class="keyword">if</span> (now - previous &gt; wait) &#123;</span><br><span class="line">            func.apply(context, args);</span><br><span class="line">            previous = now;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用定时器</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">throttle</span>(<span class="params">func, wait</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> timeout;</span><br><span class="line">    <span class="keyword">var</span> previous = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        context = <span class="keyword">this</span>;</span><br><span class="line">        args = <span class="built_in">arguments</span>;</span><br><span class="line">        <span class="keyword">if</span> (!timeout) &#123;</span><br><span class="line">            timeout = setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">                timeout = <span class="literal">null</span>;</span><br><span class="line">                func.apply(context, args)</span><br><span class="line">            &#125;, wait)</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="什么是构造函数？与普通函数有什么区别"><a href="#什么是构造函数？与普通函数有什么区别" class="headerlink" title="什么是构造函数？与普通函数有什么区别?"></a>什么是构造函数？与普通函数有什么区别?</h2><p>构造函数，就是专门用来生成实例对象的函数。</p>
+<h3 id="构造函数与普通函数的区别"><a href="#构造函数与普通函数的区别" class="headerlink" title="构造函数与普通函数的区别"></a>构造函数与普通函数的区别</h3><ul>
+<li>构造函数使用new关键字调用；普通函数不用new关键字调用；</li>
+<li>构造函数首字母建议大写；普通函数首字母建议小写；</li>
+<li>构造函数默认不用return返回值；普通函数一般都有return返回值；<ul>
+<li>构造函数会默认返回this，也就是新的实例对象；</li>
+<li>普通函数如果没有return值的话，返回undefined；</li>
+<li>构造函数如果使用了return，那返回值会根据return值的类型而有所不同；</li>
+</ul>
+</li>
+</ul>
+<h2 id="通过new创建一个对象的时候，函数内部有哪些改变"><a href="#通过new创建一个对象的时候，函数内部有哪些改变" class="headerlink" title="通过new创建一个对象的时候，函数内部有哪些改变"></a>通过new创建一个对象的时候，函数内部有哪些改变</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">NEW</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 获取参数</span></span><br><span class="line">    <span class="keyword">let</span> func = <span class="built_in">arguments</span>[<span class="number">0</span>];</span><br><span class="line">    <span class="keyword">let</span> paras = [].slice.call(<span class="built_in">arguments</span>, <span class="number">1</span>);</span><br><span class="line">    <span class="keyword">let</span> o = <span class="built_in">Object</span>.create(func.prototype);</span><br><span class="line">    <span class="keyword">let</span> res = func.call(o, ...paras);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span> res === <span class="string">'object'</span> &amp;&amp; res != <span class="literal">null</span>) &#123;</span><br><span class="line">       <span class="keyword">return</span> res;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> o;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="谈谈高阶函数、函数柯里化、偏函数"><a href="#谈谈高阶函数、函数柯里化、偏函数" class="headerlink" title="谈谈高阶函数、函数柯里化、偏函数"></a>谈谈高阶函数、函数柯里化、偏函数</h2><h2 id="函数式编程"><a href="#函数式编程" class="headerlink" title="函数式编程"></a>函数式编程</h2>
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        <li title='0' data-url='http://link.hhtjim.com/163/5146554.mp3'></li>
+                    
+                        <li title='1' data-url='http://link.hhtjim.com/qq/001faIUs4M2zna.mp3'></li>
+                    
+                </ul>
+            
+        </div>
+        
+    <div id='gitalk-container' class="comment link"
+        data-ae='true'
+        data-ci='5dcd53f9e1cbb4f401e4'
+        data-cs='0b25fdc96e004e0b384b0d54cd4e16af3b5d3392'
+        data-r='comments-collected'
+        data-o='sclchic'
+        data-a='sclchic'
+        data-d='true'
+    >查看评论</div>
+
+
+    </div>
+    
+        <div class='side'>
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#什么是闭包（closure），为什么要用它？"><span class="toc-number">1.</span> <span class="toc-text">什么是闭包（closure），为什么要用它？</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ECMAScript中，闭包指的是："><span class="toc-number">1.1.</span> <span class="toc-text">ECMAScript中，闭包指的是：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#闭包的作用"><span class="toc-number">1.2.</span> <span class="toc-text">闭包的作用</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#谈谈call、aapply、bind"><span class="toc-number">2.</span> <span class="toc-text">谈谈call、aapply、bind</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#说说节流和防抖"><span class="toc-number">3.</span> <span class="toc-text">说说节流和防抖</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#debounce防抖"><span class="toc-number">3.1.</span> <span class="toc-text">debounce防抖</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#throttle节流"><span class="toc-number">3.2.</span> <span class="toc-text">throttle节流</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#什么是构造函数？与普通函数有什么区别"><span class="toc-number">4.</span> <span class="toc-text">什么是构造函数？与普通函数有什么区别?</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#构造函数与普通函数的区别"><span class="toc-number">4.1.</span> <span class="toc-text">构造函数与普通函数的区别</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#通过new创建一个对象的时候，函数内部有哪些改变"><span class="toc-number">5.</span> <span class="toc-text">通过new创建一个对象的时候，函数内部有哪些改变</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#谈谈高阶函数、函数柯里化、偏函数"><span class="toc-number">6.</span> <span class="toc-text">谈谈高阶函数、函数柯里化、偏函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#函数式编程"><span class="toc-number">7.</span> <span class="toc-text">函数式编程</span></a></li></ol>
+        </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/diaspora.js"></script>
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+</html>
