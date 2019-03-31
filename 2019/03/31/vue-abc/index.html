@@ -21,102 +21,76 @@
 
 <body class="loading">
     <div id="loader"></div>
-    <div class="nav">
-    <ul id="menu-menu" class="menu">
-        
-        <li class="pview menu-item menu-item-type-post_type menu-item-object-page">
-            <a href="/whoami/" title="关于我" target="_blank" rel="noopener">关于我</a>
-        </li>
-        
-        <li class="pview menu-item menu-item-type-post_type menu-item-object-page">
-            <a href="/my123/" title="我的123" target="_blank" rel="noopener">我的123</a>
-        </li>
-        
-        <li class="pview menu-item menu-item-type-post_type menu-item-object-page">
-            <a href="/categories/" title="categories" target="_blank" rel="noopener">categories</a>
-        </li>
-        
-        <li class="pview menu-item menu-item-type-post_type menu-item-object-page">
-            <a href="/tags/" title="tags" target="_blank" rel="noopener">tags</a>
-        </li>
-        
-        <li class="  menu-item menu-item-type-post_type menu-item-object-page">
-            <a href="https://github.com/sclchic" title="Github" target="_blank" rel="noopener">Github</a>
-        </li>
-        
-    </ul>
-    <p id="copyright">
-        &copy; 2019 chic.
-        Powered by <a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a>
-        Theme <a href="https://github.com/Fechin/hexo-theme-diaspora" title="Diaspora" target="_blank" rel="noopener">Diaspora</a>
-        by Fechin
-    </p>
-</div>
-
-<div id="container">
-    
-<div id="screen">
-    <div id="mark">
-        <div class="layer" data-depth="0.4">
-            <img src="/img/welcome-cover.jpg" id="cover" crossorigin="anonymous" width="1920" height="1080">
-        </div>
-    </div>
-    <div id="vibrant">
-        <svg viewBox="0 0 2880 1620" height="100%" preserveAspectRatio="xMaxYMax slice">
-            <polygon opacity="0.7" points="2000,1620 0,1620 0,0 600,0 "/>
-        </svg>
-        <div></div>
-    </div>
-    <div id="header">
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="icon-home image-icon" href="javascript:;"></a>
+    <div title="播放/暂停" class="icon-play"></div>
+    <h3 class="subtitle">vue基础梳理</h3>
+    <div class="social">
+        <!--<div class="like-icon">-->
+            <!--<a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
+        <!--</div>-->
         <div>
-            <a class="image-logo" href="/"></a>
-            <div class="icon-menu switchmenu"></div>
+            <div class="share">
+                <a title="获取二维码" class="icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
         </div>
     </div>
-    
-    <div id="post0">
-        <p>三月 31, 2019</p>
-        <h2><a href="/2019/03/31/vue-abc/" title="vue基础梳理" class="posttitle">vue基础梳理</a></h2>
-        <p class="summary">介绍所有的 DOM 操作都由 Vue 来处理，你编写的代码只需要关注逻辑层面即可。
-</p>
-    </div>
-    
+    <div class="scrollbar"></div>
 </div>
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">vue基础梳理</h1>
+        <div class="stuff">
+            <span>三月 31, 2019</span>
+            
+  <ul class="post-tags-list"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/前端-Vue-js/">前端 Vue.js</a></li></ul>
 
-    <div id="primary">
+
+        </div>
+        <div class="content markdown">
+            <h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>所有的 DOM 操作都由 Vue 来处理，你编写的代码只需要关注逻辑层面即可。</p>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        <li title='0' data-url='http://link.hhtjim.com/163/5146554.mp3'></li>
+                    
+                        <li title='1' data-url='http://link.hhtjim.com/qq/001faIUs4M2zna.mp3'></li>
+                    
+                </ul>
+            
+        </div>
         
-<div class="post">
-    <a href="/2018/10/18/use-return-notice/" title="return使用注意点">
-        <img src="/img/cover.jpg" class="cover" width="680" height="440">
-    </a>
-    <div class="else">
-        <p>十月 18, 2018</p>
-        <h3><a href="/2018/10/18/use-return-notice/" title="return使用注意点" class="posttitle">return使用注意点</a></h3>
-        <p>场景描述一天晚上，我在控制台输出了这样一段代码，结果给我报了个非法的返回语句错误？咿，for循环中不能用return吗？以前也用过呢！这次是咋回事，一时难...</p>
-    </div>
-</div>
-
-
-<div class="post">
-    <a href="/2018/10/16/js-event/" title="js事件">
-        <img src="/img/cover.jpg" class="cover" width="680" height="440">
-    </a>
-    <div class="else">
-        <p>十月 16, 2018</p>
-        <h3><a href="/2018/10/16/js-event/" title="js事件" class="posttitle">js事件</a></h3>
-        <p>事件流分析
-事件流描述的是从页面中接收事件的顺序。
-
-早些时的IE和网景却提出了差不多是两种完全相反的事件流概念。IE提出的是冒泡流，而网景提出的是捕获...</p>
-    </div>
-</div>
+    <div id='gitalk-container' class="comment link"
+        data-ae='true'
+        data-ci='5dcd53f9e1cbb4f401e4'
+        data-cs='0b25fdc96e004e0b384b0d54cd4e16af3b5d3392'
+        data-r='comments-collected'
+        data-o='sclchic'
+        data-a='sclchic'
+        data-d='true'
+    >查看评论</div>
 
 
     </div>
     
+        <div class='side'>
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#介绍"><span class="toc-number">1.</span> <span class="toc-text">介绍</span></a></li></ol>
+        </div>
+    
 </div>
-<div id="preview"></div>
 
+
+    </div>
+</div>
 </body>
 <script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
 <script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
