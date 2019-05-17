@@ -1,158 +1,25 @@
-
-<!DOCTYPE html>
-<html lang="" class="loading">
-<head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>敏于事慎于言 - chic</title>
-
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="google" content="notranslate" />
-    <meta name="keywords" content="前端 程序媛 生活杂记,"> 
-    <meta name="description" content="记录前端工作生活,"> 
-    <meta name="author" content="chic"> 
-    <link rel="alternative" href="atom.xml" title="敏于事慎于言" type="application/atom+xml"> 
-    <link rel="icon" href="/img/favicon.png"> 
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
-    <link rel="stylesheet" href="/css/diaspora.css">
-</head>
-
-<body class="loading">
-    <div id="loader"></div>
-    <div id="single">
-    <div id="top" style="display: block;">
-    <div class="bar" style="width: 0;"></div>
-    <a class="icon-home image-icon" href="javascript:;"></a>
-    <div title="播放/暂停" class="icon-play"></div>
-    <h3 class="subtitle">return使用注意点</h3>
-    <div class="social">
-        <!--<div class="like-icon">-->
-            <!--<a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
-        <!--</div>-->
-        <div>
-            <div class="share">
-                <a title="获取二维码" class="icon-scan" href="javascript:;"></a>
-            </div>
-            <div id="qr"></div>
-        </div>
-    </div>
-    <div class="scrollbar"></div>
-</div>
-    <div class="section">
-        <div class="article">
-    <div class='main'>
-        <h1 class="title">return使用注意点</h1>
-        <div class="stuff">
-            <span>十月 18, 2018</span>
-            
-  <ul class="post-tags-list"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/javascript/">js</a></li></ul>
-
-
-        </div>
-        <div class="content markdown">
-            <h2 id="场景描述"><a href="#场景描述" class="headerlink" title="场景描述"></a>场景描述</h2><p>一天晚上，我在控制台输出了这样一段代码，结果给我报了个非法的返回语句错误？咿，for循环中不能用<code>return</code>吗？以前也用过呢！这次是咋回事，一时难以理解。<br><img src="/2018/10/18/use-return-notice/img1.png" title="This is example image"></p>
+<!DOCTYPE html><html><head><meta name="generator" content="Hexo 3.8.0"><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content="记录前端工作生活"><title>return使用注意点 | HAKUNA MATATA</title><link rel="stylesheet" type="text/css" href="/css/style.css?v=0.0.0"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/normalize/8.0.1/normalize.min.css"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/pure/1.0.0/pure-min.css"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/pure/1.0.0/grids-responsive-min.css"><link rel="stylesheet" href="//lib.baomitu.com/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//lib.baomitu.com/jquery/3.4.0/jquery.min.js"></script><link rel="icon" mask sizes="any" href="/favicon.ico"><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">return使用注意点</h1><a id="logo" href="/.">HAKUNA MATATA</a><p class="description">从此以后无忧无虑，梦想成真</p></div><div id="nav-menu"><a class="current" href="/."><i class="fa undefined"> 首页</i></a><a href="/archives/"><i class="fa undefined"> 归档</i></a><a href="/whoami/"><i class="fa undefined"> 关于</i></a><a href="/my123/"><i class="fa undefined"> 我的123</i></a></div></div><div class="pure-g" id="layout"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">return使用注意点</h1><div class="post-meta">Oct 18, 2018<span> | </span><span class="category"><a href="/categories/分类1/">分类1</a><a href="/categories/分类1/分类2/">分类2</a></span><script src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script><span id="busuanzi_container_page_pv"> | <span id="busuanzi_value_page_pv"></span><span> 阅读</span></span></div><div class="post-content"><h2 id="场景描述"><a href="#场景描述" class="headerlink" title="场景描述"></a>场景描述</h2><p>一天晚上，我在控制台输出了这样一段代码，结果给我报了个非法的返回语句错误？咿，for循环中不能用<code>return</code>吗？以前也用过呢！这次是咋回事，一时难以理解。<br><img src="/2018/10/18/use-return-notice/img1.png" title="This is example image"></p>
 <h2 id="为什么呢"><a href="#为什么呢" class="headerlink" title="为什么呢"></a>为什么呢</h2><blockquote><p><code>return</code>语句终止<code>函数</code>的执行，并返回一个指定的值给函数调用者。</p>
 <footer><strong>MDN -</strong><cite><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Statements/return" target="_blank" rel="noopener">return</a></cite></footer></blockquote>
 <p>查了return的定义，才注意到之前用一直在函数里面，而这次控制台直接输出并没有在函数里使用，所以报错了！return 应该运行在函数中才可以的！</p>
-
-            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
-            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
-                <source type="audio/mpeg" src="">
-            </audio>
-            
-                <ul id="audio-list" style="display:none">
-                    
-                        <li title='0' data-url='http://link.hhtjim.com/163/5146554.mp3'></li>
-                    
-                        <li title='1' data-url='http://link.hhtjim.com/qq/001faIUs4M2zna.mp3'></li>
-                    
-                </ul>
-            
-        </div>
-        
-    <div id='gitalk-container' class="comment link"
-        data-ae='true'
-        data-ci='5dcd53f9e1cbb4f401e4'
-        data-cs='0b25fdc96e004e0b384b0d54cd4e16af3b5d3392'
-        data-r='comments-collected'
-        data-o='sclchic'
-        data-a='sclchic'
-        data-d='true'
-    >查看评论</div>
-
-
-    </div>
-    
-        <div class='side'>
-            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#场景描述"><span class="toc-number">1.</span> <span class="toc-text">场景描述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#为什么呢"><span class="toc-number">2.</span> <span class="toc-text">为什么呢</span></a></li></ol>
-        </div>
-    
-</div>
-
-
-    </div>
-</div>
-</body>
-<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
-<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
-<script src="/js/plugin.js"></script>
-<script src="/js/diaspora.js"></script>
-<link rel="stylesheet" href="/photoswipe/photoswipe.css">
-<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
-<script src="/photoswipe/photoswipe.min.js"></script>
-<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
-
-<!-- Root element of PhotoSwipe. Must have class pswp. -->
-<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
-    <!-- Background of PhotoSwipe. 
-         It's a separate element as animating opacity is faster than rgba(). -->
-    <div class="pswp__bg"></div>
-    <!-- Slides wrapper with overflow:hidden. -->
-    <div class="pswp__scroll-wrap">
-        <!-- Container that holds slides. 
-            PhotoSwipe keeps only 3 of them in the DOM to save memory.
-            Don't modify these 3 pswp__item elements, data is added later on. -->
-        <div class="pswp__container">
-            <div class="pswp__item"></div>
-            <div class="pswp__item"></div>
-            <div class="pswp__item"></div>
-        </div>
-        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
-        <div class="pswp__ui pswp__ui--hidden">
-            <div class="pswp__top-bar">
-                <!--  Controls are self-explanatory. Order can be changed. -->
-                <div class="pswp__counter"></div>
-                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
-                <button class="pswp__button pswp__button--share" title="Share"></button>
-                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
-                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
-                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
-                <!-- element will get class pswp__preloader--active when preloader is running -->
-                <div class="pswp__preloader">
-                    <div class="pswp__preloader__icn">
-                      <div class="pswp__preloader__cut">
-                        <div class="pswp__preloader__donut"></div>
-                      </div>
-                    </div>
-                </div>
-            </div>
-            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
-                <div class="pswp__share-tooltip"></div> 
-            </div>
-            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
-            </button>
-            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
-            </button>
-            <div class="pswp__caption">
-                <div class="pswp__caption__center"></div>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-
-
-</html>
+</div><script type="text/javascript" src="/js/share.js?v=0.0.0" async></script><a class="article-share-link" data-url="https://sclchic.github.io/2018/10/18/use-return-notice/" data-id="cjvrwzfkp000guhqm697knvx7" data-qrcode="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACH0lEQVR42u3aQY7DIAwF0Nz/0pkDjIK+TVIJeKyqqCU8Fi7Yvq543P/G03fy749/dX0xMDAwlmXcw/H0gvlFjzH52jAwMM5h5FMnsPEiqoxoOzAwMDCC41o1KPe2BgMDA6N3XEt4yXMMDAyMMSO5xI5flofU+TCNgYFxGiPPuv/+8yf1DQwMjKUYd3FU58mLlPfEwMDA2JvRS6VVU2YzQTxP7WFgYJzAyMNlkgh7ty0seYKBgbErI5miV4ycP/AVjpgYGBgHMPKlJCXMalo/D8ePq8LAwDiA8VapIJ9tvDXVxBwGBsbejJlkfTJ1L+mWPMkycBgYGHsyqgXL5BhXvdBWm8YwMDD2ZiThrJdKq4bLXijHwMA4hzEfTN8KuOVE23jvMTAwNmJUpyuXGItJt+oGYWBg7M14N4DOtGjk21cuRWBgYCzOqC6l+uRHRQUMDIwDGL3Uf9Io1js+ltkYGBhbM/JWrby4+F1zWLNzBAMDYwtGnhqrHtryjo98+x6PpBgYGAcwvguI1Utyc/swMDAOYPTKAMnnPNFfrUg2/zcwMDCWYtzFMV8GyLemef/GwMDYjpGP/PBXLTbk/wwzqT0MDIzVGdUgmyx0BpOH7Ksa9TEwMBZnVFNd1QaLvAmjt1oMDAyMl18Zv6VwqsXAwMCYvhPPHD0jEgYGxgGM5DXjZtZeGq5X5sTAwDiN0WtxyEubM0m3l4uaGBgY6zH+AHKh2xlNM22LAAAAAElFTkSuQmCC">分享</a><div class="tags"><a href="/tags/标签1/">标签1</a><a href="/tags/标签2/">标签2</a></div><div class="post-nav"><a class="pre" href="/2018/10/18/str-ellipsis/">按字节数截取字符串</a><a class="next" href="/2018/10/16/js-event/">js事件</a></div><div id="container"></div><link rel="stylesheet" href="/css/default.css?v=0.0.0"><script src="/js/gitment.browser.js?v=0.0.0"></script><script>var gitment = new Gitment({
+  id: window.location.pathname.substring(1,window.location.pathname.length),
+  owner: 'sclchic',
+  repo: 'comments-collected',
+  oauth: {
+    client_id: '5dcd53f9e1cbb4f401e4',
+    client_secret: '0b25fdc96e004e0b384b0d54cd4e16af3b5d3392',
+  },
+})
+gitment.render('container')
+</script><div id="container"></div><link rel="stylesheet" type="text/css" href="//unpkg.com/gitalk/dist/gitalk.css?v=0.0.0"><script type="text/javascript" src="//cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.js?v=0.0.0"></script><script type="text/javascript" src="//unpkg.com/gitalk/dist/gitalk.min.js?v=0.0.0"></script><script>var gitalk = new Gitalk({
+  clientID: '5dcd53f9e1cbb4f401e4',
+  clientSecret: '0b25fdc96e004e0b384b0d54cd4e16af3b5d3392',
+  repo: 'comments-collected',
+  owner: 'sclchic',
+  admin: ['sclchic'],
+  id: md5(location.pathname),
+  distractionFreeMode: false
+})
+gitalk.render('container')
+</script></div></div></div><div class="pure-u-1-4 hidden_mid_and_down"><div id="sidebar"><div class="widget"><form class="search-form" action="//www.google.com/search" method="get" accept-charset="utf-8" target="_blank"><input type="text" name="q" maxlength="20" placeholder="Search"><input type="hidden" name="sitesearch" value="https://sclchic.github.io"></form></div><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> 分类</i></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/分类1/">分类1</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/分类1/分类2/">分类2</a><span class="category-list-count">1</span></li></ul></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o"> 标签</i></div><div class="tagcloud"><a href="/tags/标签1/" style="font-size: 15px;">标签1</a> <a href="/tags/标签2/" style="font-size: 15px;">标签2</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> 最近文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2019/04/09/algorithm/">排序算法</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/31/vue-abc/">vue基础梳理</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/27/es6/">es6知识点总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/22/interview-function/">函数相关</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/19/interview-array/">面试之数组相关</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/12/append/">记录一次工作中的问题-append</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/06/prototype/">原型原型链</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/02/26/element-note/">Element ui使用经验篇</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/02/13/timer/">setTimeout、setInterval被遗忘的第三个参数</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/10/data-structure/">数据结构</a></li></ul></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">Copyright © 2019 <a href="/." rel="nofollow">HAKUNA MATATA.</a> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a><a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"> Theme</a> by<a rel="nofollow" target="_blank" href="https://github.com/pagecho"> Cho.</a></div></div></div><a class="show" id="rocket" href="#top"></a><script type="text/javascript" src="/js/totop.js?v=0.0.0" async></script><script type="text/javascript" src="//lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.0" async></script><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css"><script type="text/javascript" src="/js/codeblock-resizer.js?v=0.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=0.0.0"></script></div></body></html>

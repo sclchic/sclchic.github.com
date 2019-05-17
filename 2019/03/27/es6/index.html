@@ -1,58 +1,4 @@
-
-<!DOCTYPE html>
-<html lang="" class="loading">
-<head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>敏于事慎于言 - chic</title>
-
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="google" content="notranslate" />
-    <meta name="keywords" content="前端 程序媛 生活杂记,"> 
-    <meta name="description" content="记录前端工作生活,"> 
-    <meta name="author" content="chic"> 
-    <link rel="alternative" href="atom.xml" title="敏于事慎于言" type="application/atom+xml"> 
-    <link rel="icon" href="/img/favicon.png"> 
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
-    <link rel="stylesheet" href="/css/diaspora.css">
-</head>
-
-<body class="loading">
-    <div id="loader"></div>
-    <div id="single">
-    <div id="top" style="display: block;">
-    <div class="bar" style="width: 0;"></div>
-    <a class="icon-home image-icon" href="javascript:;"></a>
-    <div title="播放/暂停" class="icon-play"></div>
-    <h3 class="subtitle">es6知识点总结</h3>
-    <div class="social">
-        <!--<div class="like-icon">-->
-            <!--<a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
-        <!--</div>-->
-        <div>
-            <div class="share">
-                <a title="获取二维码" class="icon-scan" href="javascript:;"></a>
-            </div>
-            <div id="qr"></div>
-        </div>
-    </div>
-    <div class="scrollbar"></div>
-</div>
-    <div class="section">
-        <div class="article">
-    <div class='main'>
-        <h1 class="title">es6知识点总结</h1>
-        <div class="stuff">
-            <span>三月 27, 2019</span>
-            
-  <ul class="post-tags-list"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/前端-es6/">前端 es6</a></li></ul>
-
-
-        </div>
-        <div class="content markdown">
-            <h2 id="字符串和正则表达式"><a href="#字符串和正则表达式" class="headerlink" title="字符串和正则表达式"></a>字符串和正则表达式</h2><h3 id="更好的Unicode支持"><a href="#更好的Unicode支持" class="headerlink" title="更好的Unicode支持"></a>更好的Unicode支持</h3><ul>
+<!DOCTYPE html><html><head><meta name="generator" content="Hexo 3.8.0"><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content="记录前端工作生活"><title>es6知识点总结 | HAKUNA MATATA</title><link rel="stylesheet" type="text/css" href="/css/style.css?v=0.0.0"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/normalize/8.0.1/normalize.min.css"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/pure/1.0.0/pure-min.css"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/pure/1.0.0/grids-responsive-min.css"><link rel="stylesheet" href="//lib.baomitu.com/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//lib.baomitu.com/jquery/3.4.0/jquery.min.js"></script><link rel="icon" mask sizes="any" href="/favicon.ico"><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">es6知识点总结</h1><a id="logo" href="/.">HAKUNA MATATA</a><p class="description">从此以后无忧无虑，梦想成真</p></div><div id="nav-menu"><a class="current" href="/."><i class="fa undefined"> 首页</i></a><a href="/archives/"><i class="fa undefined"> 归档</i></a><a href="/whoami/"><i class="fa undefined"> 关于</i></a><a href="/my123/"><i class="fa undefined"> 我的123</i></a></div></div><div class="pure-g" id="layout"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">es6知识点总结</h1><div class="post-meta">Mar 27, 2019<script src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script><span id="busuanzi_container_page_pv"> | <span id="busuanzi_value_page_pv"></span><span> 阅读</span></span></div><div class="post-content"><h2 id="字符串和正则表达式"><a href="#字符串和正则表达式" class="headerlink" title="字符串和正则表达式"></a>字符串和正则表达式</h2><h3 id="更好的Unicode支持"><a href="#更好的Unicode支持" class="headerlink" title="更好的Unicode支持"></a>更好的Unicode支持</h3><ul>
 <li>字符串里的字符有两种，一种是由一个编码单元16位表示的BMP字符；一种是由两个编码单元32位表示的辅助平面字符</li>
 <li>es6强制使用UTF-16字符串编码来解决上述问题，并按照编码来标准化字符串操作，专门增加了专门针对代理对的功能</li>
 </ul>
@@ -139,103 +85,24 @@
 <li><p>默认参数对arguments对象的影响</p>
 </li>
 </ul>
-
-            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
-            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
-                <source type="audio/mpeg" src="">
-            </audio>
-            
-                <ul id="audio-list" style="display:none">
-                    
-                        <li title='0' data-url='http://link.hhtjim.com/163/5146554.mp3'></li>
-                    
-                        <li title='1' data-url='http://link.hhtjim.com/qq/001faIUs4M2zna.mp3'></li>
-                    
-                </ul>
-            
-        </div>
-        
-    <div id='gitalk-container' class="comment link"
-        data-ae='true'
-        data-ci='5dcd53f9e1cbb4f401e4'
-        data-cs='0b25fdc96e004e0b384b0d54cd4e16af3b5d3392'
-        data-r='comments-collected'
-        data-o='sclchic'
-        data-a='sclchic'
-        data-d='true'
-    >查看评论</div>
-
-
-    </div>
-    
-        <div class='side'>
-            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#字符串和正则表达式"><span class="toc-number">1.</span> <span class="toc-text">字符串和正则表达式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#更好的Unicode支持"><span class="toc-number">1.1.</span> <span class="toc-text">更好的Unicode支持</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#增加的方法"><span class="toc-number">1.1.1.</span> <span class="toc-text">增加的方法</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#其他字符串变更"><span class="toc-number">1.2.</span> <span class="toc-text">其他字符串变更</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#字符串中的字串识别"><span class="toc-number">1.2.1.</span> <span class="toc-text">字符串中的字串识别</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#模版字面量"><span class="toc-number">1.2.2.</span> <span class="toc-text">模版字面量</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#多行字符串"><span class="toc-number">1.2.2.1.</span> <span class="toc-text">多行字符串</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#字符串占位符"><span class="toc-number">1.2.2.2.</span> <span class="toc-text">字符串占位符</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#函数"><span class="toc-number">2.</span> <span class="toc-text">函数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#函数形参的默认值"><span class="toc-number">2.1.</span> <span class="toc-text">函数形参的默认值</span></a></li></ol></li></ol>
-        </div>
-    
-</div>
-
-
-    </div>
-</div>
-</body>
-<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
-<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
-<script src="/js/plugin.js"></script>
-<script src="/js/diaspora.js"></script>
-<link rel="stylesheet" href="/photoswipe/photoswipe.css">
-<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
-<script src="/photoswipe/photoswipe.min.js"></script>
-<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
-
-<!-- Root element of PhotoSwipe. Must have class pswp. -->
-<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
-    <!-- Background of PhotoSwipe. 
-         It's a separate element as animating opacity is faster than rgba(). -->
-    <div class="pswp__bg"></div>
-    <!-- Slides wrapper with overflow:hidden. -->
-    <div class="pswp__scroll-wrap">
-        <!-- Container that holds slides. 
-            PhotoSwipe keeps only 3 of them in the DOM to save memory.
-            Don't modify these 3 pswp__item elements, data is added later on. -->
-        <div class="pswp__container">
-            <div class="pswp__item"></div>
-            <div class="pswp__item"></div>
-            <div class="pswp__item"></div>
-        </div>
-        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
-        <div class="pswp__ui pswp__ui--hidden">
-            <div class="pswp__top-bar">
-                <!--  Controls are self-explanatory. Order can be changed. -->
-                <div class="pswp__counter"></div>
-                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
-                <button class="pswp__button pswp__button--share" title="Share"></button>
-                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
-                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
-                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
-                <!-- element will get class pswp__preloader--active when preloader is running -->
-                <div class="pswp__preloader">
-                    <div class="pswp__preloader__icn">
-                      <div class="pswp__preloader__cut">
-                        <div class="pswp__preloader__donut"></div>
-                      </div>
-                    </div>
-                </div>
-            </div>
-            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
-                <div class="pswp__share-tooltip"></div> 
-            </div>
-            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
-            </button>
-            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
-            </button>
-            <div class="pswp__caption">
-                <div class="pswp__caption__center"></div>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-
-
-</html>
+</div><script type="text/javascript" src="/js/share.js?v=0.0.0" async></script><a class="article-share-link" data-url="https://sclchic.github.io/2019/03/27/es6/" data-id="cjvrwzfkb0006uhqmsjjr6m2r" data-qrcode="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAAAAACKZ2kyAAABxElEQVR42u3aS46DQAwFwNz/0sw2iww823STSNWrKOJTsHjCdr9e8Tre1vs/50cmx7xWLFxc3DH3OF0JN7lxfv2LB8bFxd3I/e8GOS4/vhqLuLi438+NLtoKMlxc3N/ljj5Qiq8DFxf3We4kaP7D5SXTkloNFxd3wM27lOt+L+nv4uLitrhHcVUfadIk/XAWLi7uFu68qZGHUf7ZdDGOxcXF3cLNS5okhuYbLMqvAxcXdxm3OiwptDhjxA2bMHBxccfcSfsyb7D2Iu/D1XBxcbdw51F1Pj6Z52shd3FxcRdwq03MpOWxvFbDxcVdwK2OSaoFT3WjxsV9cXFxH+KeFy3Jdoo8BJOC6kOthouLu4U7D5pe47X88YSLi7uFm0OT8Lp3o8ZFqxQXF/dR7mQfRxJz+cPj4uI+xc1LoKRpUi5vAg8uLu5ObnUzRHkgWhylFL6AcHFxb+UexZWPVXpbu8rTV1xc3AXcyZaIXpuj0P6YhCMuLu6Ym4dO7yMpj7zo1eDi4m7kToKmV0TdUKvh4uJ+DXdS/MzHM7i4uL/Lrf5TEOLi4m7k9pqb+dCldy4uLu5T3F7TszdoqUbbqL+Li4vb4f4BG5V7ioSW7QoAAAAASUVORK5CYII=">分享</a><div class="tags"></div><div class="post-nav"><a class="pre" href="/2019/03/31/vue-abc/">vue基础梳理</a><a class="next" href="/2019/03/22/interview-function/">函数相关</a></div><div id="container"></div><link rel="stylesheet" href="/css/default.css?v=0.0.0"><script src="/js/gitment.browser.js?v=0.0.0"></script><script>var gitment = new Gitment({
+  id: window.location.pathname.substring(1,window.location.pathname.length),
+  owner: 'sclchic',
+  repo: 'comments-collected',
+  oauth: {
+    client_id: '5dcd53f9e1cbb4f401e4',
+    client_secret: '0b25fdc96e004e0b384b0d54cd4e16af3b5d3392',
+  },
+})
+gitment.render('container')
+</script><div id="container"></div><link rel="stylesheet" type="text/css" href="//unpkg.com/gitalk/dist/gitalk.css?v=0.0.0"><script type="text/javascript" src="//cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.js?v=0.0.0"></script><script type="text/javascript" src="//unpkg.com/gitalk/dist/gitalk.min.js?v=0.0.0"></script><script>var gitalk = new Gitalk({
+  clientID: '5dcd53f9e1cbb4f401e4',
+  clientSecret: '0b25fdc96e004e0b384b0d54cd4e16af3b5d3392',
+  repo: 'comments-collected',
+  owner: 'sclchic',
+  admin: ['sclchic'],
+  id: md5(location.pathname),
+  distractionFreeMode: false
+})
+gitalk.render('container')
+</script></div></div></div><div class="pure-u-1-4 hidden_mid_and_down"><div id="sidebar"><div class="widget"><form class="search-form" action="//www.google.com/search" method="get" accept-charset="utf-8" target="_blank"><input type="text" name="q" maxlength="20" placeholder="Search"><input type="hidden" name="sitesearch" value="https://sclchic.github.io"></form></div><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> 分类</i></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/分类1/">分类1</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/分类1/分类2/">分类2</a><span class="category-list-count">1</span></li></ul></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o"> 标签</i></div><div class="tagcloud"><a href="/tags/标签1/" style="font-size: 15px;">标签1</a> <a href="/tags/标签2/" style="font-size: 15px;">标签2</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> 最近文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2019/04/09/algorithm/">排序算法</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/31/vue-abc/">vue基础梳理</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/27/es6/">es6知识点总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/22/interview-function/">函数相关</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/19/interview-array/">面试之数组相关</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/12/append/">记录一次工作中的问题-append</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/06/prototype/">原型原型链</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/02/26/element-note/">Element ui使用经验篇</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/02/13/timer/">setTimeout、setInterval被遗忘的第三个参数</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/10/data-structure/">数据结构</a></li></ul></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">Copyright © 2019 <a href="/." rel="nofollow">HAKUNA MATATA.</a> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a><a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"> Theme</a> by<a rel="nofollow" target="_blank" href="https://github.com/pagecho"> Cho.</a></div></div></div><a class="show" id="rocket" href="#top"></a><script type="text/javascript" src="/js/totop.js?v=0.0.0" async></script><script type="text/javascript" src="//lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.0" async></script><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css"><script type="text/javascript" src="/js/codeblock-resizer.js?v=0.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=0.0.0"></script></div></body></html>
